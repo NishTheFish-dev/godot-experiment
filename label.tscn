@@ -1,4 +1,15 @@
-[gd_scene format=3 uid="uid://cifco1yyqsh7w"]
+[gd_scene load_steps=5 format=3 uid="uid://cifco1yyqsh7w"]
+
+[ext_resource type="Texture2D" uid="uid://cmeb60vy8csxo" path="res://icon.svg" id="1_ti5l5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fcskw"]
+bounce = 0.44
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntqac"]
+size = Vector2(115.5, 115.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xvm8"]
+size = Vector2(313, 20)
 
 [node name="Label" type="Label"]
 offset_left = 536.0
@@ -6,3 +17,23 @@ offset_top = 276.0
 offset_right = 614.0
 offset_bottom = 318.0
 text = "pog"
+
+[node name="ball" type="RigidBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_fcskw")
+
+[node name="Sprite2D" type="Sprite2D" parent="ball"]
+texture = ExtResource("1_ti5l5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ball"]
+shape = SubResource("RectangleShape2D_ntqac")
+
+[node name="po" type="StaticBody2D" parent="."]
+position = Vector2(0, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="po"]
+position = Vector2(-0.999992, -1.00001)
+scale = Vector2(2.4375, 0.15625)
+texture = ExtResource("1_ti5l5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="po"]
+shape = SubResource("RectangleShape2D_3xvm8")
